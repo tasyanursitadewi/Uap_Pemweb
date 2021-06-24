@@ -43,8 +43,8 @@
                 <img src="assets/images/image.jpg" alt="..." class="img-circle profile_img">
               </div>
               <div class="profile_info">
-                <span>Welcome,</span>
-                <h2>Fauzan Hilmi</h2>
+                <span>Selamat Datang!</span>
+                <h2>Tasya Revita Salsa</h2>
               </div>
             </div>
             <!-- /menu profile quick info -->
@@ -109,7 +109,7 @@
               <ul class=" navbar-right">
                 <li class="nav-item dropdown open" >
                   <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
-                    <img src="assets/images/image.jpg" alt="">Fauzan Hilmi
+                    <img src="assets/images/image.jpg" alt="">Tasya Revita Salsa
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item"  href="#"> Profile</a>
@@ -141,17 +141,17 @@
       		# code...
       		include 'tambah.php';
       		break;
-        case 'edit_mhs':
+          case 'edit_mhs':
         		# code...
         	include 'edit.php';
         	break;
-        case 'edit_mhs_save':
+          case 'edit_mhs_save':
           		# code...
           include 'edit.php';
           break;
         default:
 		          #code...
-		      include 'home.php';
+          include 'home.php';
 		      break;
         }
         ?>
@@ -187,3 +187,4 @@
 
   </body>
 </html>
+ 

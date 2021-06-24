@@ -4,14 +4,14 @@ include('config.php');
 ?>
 
 
-	<div class="container" style="margin-top:20px">
+<div class="container" style="margin-top:20px">
 		<center><font size="6">Data Mahasiswa</font></center>
 		<hr>
 		<a href="index.php?page=tambah_mhs"><button class="btn btn-dark right">Tambah Data</button></a>
 		<div class="table-responsive">
 		<table class="table table-striped jambo_table bulk_action">
 			<thead>
-				<tr>
+				<tr> 
 					<th>NO.</th>
 					<th>NIM</th>
 					<th>Nama Mahasiswa</th>
@@ -35,8 +35,8 @@ include('config.php');
 							<td>'.$data['Jenis_Kelamin'].'</td>
 							<td>'.$data['Program_Studi'].'</td>
 							<td>
-								<a href="index.php?page=edit_mhs&Nim='.$data['Nim'].'" class="btn btn-secondary btn-sm">Edit</a>
-								<a href="delete.php?Nim='.$data['Nim'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
+							<a href="index.php?page=edit_mhs&Nim='.$data['Nim'].'" class="btn btn-secondary btn-sm">Edit</a>
+							<a href="delete.php?Nim='.$data['Nim'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>
 						';
