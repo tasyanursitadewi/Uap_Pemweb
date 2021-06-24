@@ -1,74 +1,76 @@
 <?php include('config.php'); ?>
 
-		<center><font size="6">Tambah Data</font></center>
-		<hr>
-		<?php
-		if(isset($_POST['submit'])){
-			$Nim			= $_POST['Nim'];
-			$Nama_Mhs			= $_POST['Nama_Mhs'];
-			$Jenis_Kelamin	= $_POST['Jenis_Kelamin'];
-			$Program_Studi		= $_POST['Program_Studi'];
+<center>
+	<font size="6">Tambah Data</font>
+</center>
+<hr>
+<?php
+if (isset($_POST['submit'])) {
+	$Nim			= $_POST['Nim'];
+	$Nama_Mhs		= $_POST['Nama_Mhs'];
+	$Jenis_Kelamin	= $_POST['Jenis_Kelamin'];
+	$Program_Studi	= $_POST['Program_Studi'];
 
-			$cek = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE Nim='$Nim'") or die(mysqli_error($koneksi));
+	$cek = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE Nim='$Nim'") or die(mysqli_error($koneksi));
 
-			if(mysqli_num_rows($cek) == 0){
-				$sql = mysqli_query($koneksi, "INSERT INTO mahasiswa(Nim, Nama_Mhs, Jenis_Kelamin, Program_Studi) VALUES('$Nim', '$Nama_Mhs', '$Jenis_Kelamin', '$Program_Studi')") or die(mysqli_error($koneksi));
+	if (mysqli_num_rows($cek) == 0) {
+		$sql = mysqli_query($koneksi, "INSERT INTO mahasiswa(Nim, Nama_Mhs, Jenis_Kelamin, Program_Studi) VALUES('$Nim', '$Nama_Mhs', '$Jenis_Kelamin', '$Program_Studi')") or die(mysqli_error($koneksi));
 
-				if($sql){
-					echo '<script>alert("Berhasil menambahkan data."); document.location="tampil.php";</script>';
-				}else{
-					echo '<div class="alert alert-warning">Gagal melakukan proses tambah data.</div>';
-				}
-			}else{
-				echo '<div class="alert alert-warning">Gagal, NIM sudah terdaftar.</div>';
-			}
+		if ($sql) {
+			echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil_mhs";</script>';
+		} else {
+			echo '<script>alert("Gagal melakukan proses tambah data."); document.location="index.php?page=tambah_mhs";</script';
 		}
-		?>
+	} else {
+		echo '<script>alert("Gagal, NIM sudah terdaftar."); document.location="index.php?page=tambah_mhs";</script>';
+	}
+}
+?>
 
-		<form action="index.php?page=tambah_mhs" method="post">
-			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Nim</label>
-				<div class="col-md-6 col-sm-6 ">
-					<input type="text" name="Nim" class="form-control" size="4" required>
-				</div>
-			</div>
-			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Mahasiswa</label>
-				<div class="col-md-6 col-sm-6">
-					<input type="text" name="Nama_Mhs" class="form-control" required>
-				</div>
-			</div>
-			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin</label>
-				<div class="col-md-6 col-sm-6 ">
-					<div class="btn-group" data-toggle="buttons">
-						<label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-							<input type="radio" class="join-btn" name="Jenis_Kelamin" value="Laki-Laki" required>Laki-Laki
-						</label>
-						<label class="btn btn-primary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-							<input type="radio" class="join-btn" name="Jenis_Kelamin" value="Perempuan" required>Perempuan
-						</label>
-					</div>
-				</div>
-			</div>
-			<div class="item form-group">
-				<label class="col-form-label col-md-3 col-sm-3 label-align">Program Studi</label>
-				<div class="col-md-6 col-sm-6">
-					<select name="Program_Studi" class="form-control" required>
-						<option value="">Pilih Program Studi</option>
-						<option value="Ilmu Komputer">Ilmu Komputer</option>
-						<option value="Farmasi">Farmasi</option>
-						<option value="Tata Kota">Tata Kota</option>
-						<option value="Manajemen">Manajemen</option>
-						<option value="Teknik Sipil">Teknik Sipil</option>
-						<option value="Sosiologi">Sosiologi</option>
-						<option value="Hukum">Hukum</option>
-					</select>
-				</div>
-			</div>
-			<div class="item form-group">
-				<div  class="col-md-6 col-sm-6 offset-md-3">
-					<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-			</div>
-		</form>
+<form action="index.php?page=tambah_mhs" method="post">
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Nim</label>
+		<div class="col-md-6 col-sm-6 ">
+			<input type="text" name="Nim" class="form-control" size="4" required>
+		</div>
 	</div>
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Mahasiswa</label>
+		<div class="col-md-6 col-sm-6">
+			<input type="text" name="Nama_Mhs" class="form-control" required>
+		</div>
+	</div>
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin</label>
+		<div class="col-md-6 col-sm-6 ">
+			<div class="btn-group" data-toggle="buttons">
+				<label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+					<input type="radio" class="join-btn" name="Jenis_Kelamin" value="Laki-Laki" required>Laki-Laki
+				</label>
+				<label class="btn btn-primary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+					<input type="radio" class="join-btn" name="Jenis_Kelamin" value="Perempuan" required>Perempuan
+				</label>
+			</div>
+		</div>
+	</div>
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Program Studi</label>
+		<div class="col-md-6 col-sm-6">
+			<select name="Program_Studi" class="form-control" required>
+				<option value="">Pilih Program Studi</option>
+				<option value="Ilmu Komputer">Ilmu Komputer</option>
+				<option value="Farmasi">Farmasi</option>
+				<option value="Tata Kota">Tata Kota</option>
+				<option value="Manajemen">Manajemen</option>
+				<option value="Teknik Sipil">Teknik Sipil</option>
+				<option value="Sosiologi">Sosiologi</option>
+				<option value="Hukum">Hukum</option>
+			</select>
+		</div>
+	</div>
+	<div class="item form-group">
+		<div class="col-md-6 col-sm-6 offset-md-3">
+			<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
+		</div>
+</form>
+</div>
