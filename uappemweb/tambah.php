@@ -6,15 +6,18 @@
 <hr>
 <?php
 if (isset($_POST['submit'])) {
-	$Nim			= $_POST['Nim'];
-	$Nama_Mhs		= $_POST['Nama_Mhs'];
-	$Jenis_Kelamin	= $_POST['Jenis_Kelamin'];
-	$Program_Studi	= $_POST['Program_Studi'];
+	$id			= $_POST['id'];
+	$Nama		= $_POST['nama'];
+	$Jenis		= $_POST['jenis'];
+	$Ukuran		= $_POST['ukuran'];
+	$Harga 		= $_POST['harga'];
+	$Jumlah		= $_POST['jumlah'];
+	$Total_Harga= $_POST['total_harga'];
 
-	$cek = mysqli_query($koneksi, "SELECT * FROM mahasiswa WHERE Nim='$Nim'") or die(mysqli_error($koneksi));
+	$cek = mysqli_query($koneksi, "SELECT * FROM pakaian WHERE id='$id'") or die(mysqli_error($koneksi));
 
 	if (mysqli_num_rows($cek) == 0) {
-		$sql = mysqli_query($koneksi, "INSERT INTO mahasiswa(Nim, Nama_Mhs, Jenis_Kelamin, Program_Studi) VALUES('$Nim', '$Nama_Mhs', '$Jenis_Kelamin', '$Program_Studi')") or die(mysqli_error($koneksi));
+		$sql = mysqli_query($koneksi, "INSERT INTO pakaian (id, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
 
 		if ($sql) {
 			echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil_mhs";</script>';
@@ -29,43 +32,72 @@ if (isset($_POST['submit'])) {
 
 <form action="index.php?page=tambah_mhs" method="post">
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Nim</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
 		<div class="col-md-6 col-sm-6 ">
-			<input type="text" name="Nim" class="form-control" size="4" required>
+			<input type="text" name="nama" class="form-control" size="4" required>
 		</div>
 	</div>
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Mahasiswa</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Pakaian</label>
 		<div class="col-md-6 col-sm-6">
-			<input type="text" name="Nama_Mhs" class="form-control" required>
+			<select name="jenis" class="form-control" required>
+				<option value="">Piih Jenis Pakaian</option>
+				<option value="Baju">Baju</option>
+				<option value="Celana">Celana</option>
+				<option value="Rok">Rok</option>
+				<option value="Gaun">Gaun</option>
+				<option value="Baju Muslim">Baju Muslim</option>
+				<option value="Jilbab">Jilbab</option>
+				<option value="Kaos">Kaos</option>
+				<option value="Mukena">Mukena</option>
+				<option value="Jaket">Jaket</option>
+				<option value="Hoodie">Hoodie</option>
+				<option value="Rompi">Rompi</option>
+				<option value="Baju Sekolah">Baju Sekolah</option>
+				<option value="Baju Pengantin">Baju Pengantin</option>
+				<option value="Baju Olahraga">Baju Olahraga</option>
+				<option value="Pakaian Dalam">Pakaian Dalam</option>
+			</select>
 		</div>
 	</div>
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Kelamin</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Ukuran</label>
 		<div class="col-md-6 col-sm-6 ">
 			<div class="btn-group" data-toggle="buttons">
 				<label class="btn btn-secondary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-					<input type="radio" class="join-btn" name="Jenis_Kelamin" value="Laki-Laki" required>Laki-Laki
+					<input type="radio" class="join-btn" name="ukuran" value="S" required>S
 				</label>
 				<label class="btn btn-primary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-					<input type="radio" class="join-btn" name="Jenis_Kelamin" value="Perempuan" required>Perempuan
+					<input type="radio" class="join-btn" name="ukuran" value="M" required>M
+				</label>
+				<label class="btn btn-secondary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+					<input type="radio" class="join-btn" name="ukuran" value="L" required>L
+				</label>
+				<label class="btn btn-primary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+					<input type="radio" class="join-btn" name="ukuran" value="XL" required>XL
+				</label>
+				<label class="btn btn-secondary " data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+					<input type="radio" class="join-btn" name="ukuran" value="XXL" required>XXL
 				</label>
 			</div>
 		</div>
 	</div>
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Program Studi</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Harga</label>
 		<div class="col-md-6 col-sm-6">
-			<select name="Program_Studi" class="form-control" required>
-				<option value="">Pilih Program Studi</option>
-				<option value="Ilmu Komputer">Ilmu Komputer</option>
-				<option value="Farmasi">Farmasi</option>
-				<option value="Tata Kota">Tata Kota</option>
-				<option value="Manajemen">Manajemen</option>
-				<option value="Teknik Sipil">Teknik Sipil</option>
-				<option value="Sosiologi">Sosiologi</option>
-				<option value="Hukum">Hukum</option>
-			</select>
+			<input type="text" name="harga" class="form-control" required>
+		</div>
+	</div>
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Jumlah</label>
+		<div class="col-md-6 col-sm-6">
+			<input type="text" name="jumlah" class="form-control" required>
+		</div>
+	</div>
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Total Harga</label>
+		<div class="col-md-6 col-sm-6">
+			<input type="text" name="total_harga" class="form-control" required>
 		</div>
 	</div>
 	<div class="item form-group">

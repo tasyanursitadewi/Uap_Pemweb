@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="assets/images/favicon.png" type="image/ico" />
 
-    <title> Sistem Informasi Akademik</title>
+    <title> Sistem Informasi Penjualan Pakaian</title>
 
     <!-- Bootstrap -->
     <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -57,19 +57,19 @@
                 <ul class="nav side-menu">
                   <li><a href="index.php"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                   </li>
-                  <li><a href="#"><i class="fa fa-desktop"></i> Data Mahasiswa <span class="fa fa-chevron-down"></span></a>
+                  <li><a href="#"><i class="fa fa-desktop"></i> Pemasukan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?page=tampil_mhs">Tampil Data</a></li>
-                      <li><a href="index.php?page=tambah_mhs">Tambah Data</a></li>
+                      <li><a href="index.php?page=tampil">Data Pemasukan</a></li>
+                      <li><a href="index.php?page=tambah">Input Data</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Data Dosen <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i> Pengeluaran <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Tampil Data</a></li>
-                      <li><a href="#">Tambah Data</a></li>
+                      <li><a href="#">Data Pengeluaran</a></li>
+                      <li><a href="#">Input Data</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-gear"></i> Settings <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i> Laporan Bulanan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="#">Settings 1</a></li>
                       <li><a href="#">Settings 2</a></li>
@@ -133,15 +133,15 @@
       parse_str($_SERVER['QUERY_STRING'], $queries);
       error_reporting(E_ALL ^ (E_NOTICE | E_WARNING));
       switch ($queries['page']) {
-      	case 'tampil_mhs':
+      	case 'tampil':
       		# code...
       		include 'tampil.php';
       		break;
-      	case 'tambah_mhs':
+      	case 'tambah':
       		# code...
       		include 'tambah.php';
       		break;
-          case 'edit_mhs':
+          case 'edit':
         		# code...
         	include 'edit.php';
         	break;
