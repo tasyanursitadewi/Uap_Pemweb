@@ -14,10 +14,10 @@ if (isset($_POST['submit'])) {
 	$Jumlah		= $_POST['jumlah'];
 	$Total_Harga= $_POST['total_harga'];
 
-	$cek = mysqli_query($koneksi, "SELECT * FROM pakaian WHERE id='$id'") or die(mysqli_error($koneksi));
+	$cek = mysqli_query($koneksi, "SELECT * FROM masuk WHERE id='$id'") or die(mysqli_error($koneksi));
 
 	if (mysqli_num_rows($cek) == 0) {
-		$sql = mysqli_query($koneksi, "INSERT INTO pakaian (id, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
+		$sql = mysqli_query($koneksi, "INSERT INTO masuk (id, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
 
 		if ($sql) {
 			echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil_mhs";</script>';
@@ -32,16 +32,16 @@ if (isset($_POST['submit'])) {
 
 <form action="index.php?page=tambah_mhs" method="post">
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama masuk</label>
 		<div class="col-md-6 col-sm-6 ">
 			<input type="text" name="nama" class="form-control" size="4" required>
 		</div>
 	</div>
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Pakaian</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis masuk</label>
 		<div class="col-md-6 col-sm-6">
 			<select name="jenis" class="form-control" required>
-				<option value="">Piih Jenis Pakaian</option>
+				<option value="">Piih Jenis masuk</option>
 				<option value="Baju">Baju</option>
 				<option value="Celana">Celana</option>
 				<option value="Rok">Rok</option>
@@ -56,7 +56,7 @@ if (isset($_POST['submit'])) {
 				<option value="Baju Sekolah">Baju Sekolah</option>
 				<option value="Baju Pengantin">Baju Pengantin</option>
 				<option value="Baju Olahraga">Baju Olahraga</option>
-				<option value="Pakaian Dalam">Pakaian Dalam</option>
+				<option value="masuk Dalam">masuk Dalam</option>
 			</select>
 		</div>
 	</div>

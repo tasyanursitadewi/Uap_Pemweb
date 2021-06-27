@@ -10,7 +10,7 @@
 	<?php
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
-		$select = mysqli_query($koneksi, "SELECT * FROM pakaian WHERE id='$id'") or die(mysqli_error($koneksi));
+		$select = mysqli_query($koneksi, "SELECT * FROM masuk WHERE id='$id'") or die(mysqli_error($koneksi));
 
 		if (mysqli_num_rows($select) == 0) {
 			echo '<div class="alert alert-warning">ID tidak ada dalam database.</div>';
@@ -30,7 +30,7 @@
 		$Jumlah		= $_POST['jumlah'];
 		$Total_Harga = $_POST['total_harga'];
 
-		$sql = mysqli_query($koneksi, "UPDATE pakaian SET nama='$Nama', jenis='$Jenis', ukuran='$Ukuran', harga='$Harga', jumlah='$Jumlah', total_harga='$Total_Harga' WHERE id='$id'") or die(mysqli_error($koneksi));
+		$sql = mysqli_query($koneksi, "UPDATE masuk SET nama='$Nama', jenis='$Jenis', ukuran='$Ukuran', harga='$Harga', jumlah='$Jumlah', total_harga='$Total_Harga' WHERE id='$id'") or die(mysqli_error($koneksi));
 
 		if ($sql) {
 			echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil";</script>';
@@ -43,16 +43,16 @@
 	<form action="edit.php?page=edit&id=<?php echo $id; ?>" method="POST">
 </div>
 <div class="item form-group">
-	<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
+	<label class="col-form-label col-md-3 col-sm-3 label-align">Nama masuk</label>
 	<div class="col-md-6 col-sm-6">
 		<input type="text" name="nama" class="form-control" value="<?php echo $data['nama']; ?>" required>
 	</div>
 </div>
 <div class="item form-group">
-	<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Pakaian</label>
+	<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis masuk</label>
 	<div class="col-md-6 col-sm-6">
 		<select name="jenis" class="form-control" required>
-			<option value="">Pilih Jenis Pakaian</option>
+			<option value="">Pilih Jenis masuk</option>
 			<option value="Baju"
 			<?php if ($data['jenis'] == 'Baju') {
 				echo 'selected';
@@ -109,10 +109,10 @@
 			<?php if ($data['jenis'] == 'Baju Olahraga') {
 				echo 'selected';
 			} ?>>Baju Olahraga</option>
-			<option value="Pakaian Dalam"
-			<?php if ($data['jenis'] == 'Pakaian Dalam') {
+			<option value="masuk Dalam"
+			<?php if ($data['jenis'] == 'masuk Dalam') {
 				echo 'selected';
-			} ?>>Pakaian Dalam</option>
+			} ?>>masuk Dalam</option>
 		</select>
 	</div>
 </div>

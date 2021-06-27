@@ -11,7 +11,7 @@ include('config.php');
 		<div class="table-responsive">
 		<table class="table table-striped jambo_table bulk_action">
 			<thead>
-				<tr> 
+				<tr align="center"> 
 					<th>No.</th>
 					<th>Nama</th>
 					<th>Jenis</th>
@@ -24,7 +24,7 @@ include('config.php');
 			</thead>
 			<tbody>
 				<?php
-				$sql = mysqli_query($koneksi, "SELECT * FROM pakaian ORDER BY id DESC") or die(mysqli_error($koneksi));
+				$sql = mysqli_query($koneksi, "SELECT * FROM masuk ORDER BY id DESC") or die(mysqli_error($koneksi));
 
 				if(mysqli_num_rows($sql) > 0){
 					$no = 1;
@@ -34,11 +34,11 @@ include('config.php');
 							<td>'.$no.'</td>
 							<td>'.$data['nama'].'</td>
 							<td>'.$data['jenis'].'</td>
-							<td>'.$data['ukuran'].'</td>
+							<td align="center">'.$data['ukuran'].'</td>
 							<td>'.$data['harga'].'</td>
-							<td>'.$data['jumlah'].'</td>
+							<td align="center">'.$data['jumlah'].'</td>
 							<td>'.$data['total_harga'].'</td>
-							<td>
+							<td align="center">
 							<a href="index.php?page=edit&id='.$data['id'].' "class="btn btn-primary btn-sm">Edit</a>
 							<a href="delete.php?id='.$data['id'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
