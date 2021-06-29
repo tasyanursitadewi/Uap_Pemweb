@@ -20,28 +20,28 @@ if (isset($_POST['submit'])) {
 		$sql = mysqli_query($koneksi, "INSERT INTO masuk (id, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
 
 		if ($sql) {
-			echo '<script>alert("Berhasil menambahkan data."); document.location="index.php?page=tampil_mhs";</script>';
+			echo '<script>alert("Berhasil menambahkan data."); document.location="utama.php?page=tampil_mhs";</script>';
 		} else {
-			echo '<script>alert("Gagal melakukan proses tambah data."); document.location="index.php?page=tambah_mhs";</script';
+			echo '<script>alert("Gagal melakukan proses tambah data."); document.location="utama.php?page=tambah_mhs";</script';
 		}
 	} else {
-		echo '<script>alert("Gagal, NIM sudah terdaftar."); document.location="index.php?page=tambah_mhs";</script>';
+		echo '<script>alert("Gagal, NIM sudah terdaftar."); document.location="utama.php?page=tambah_mhs";</script>';
 	}
 }
 ?>
 
-<form action="index.php?page=tambah_mhs" method="post">
+<form action="utama.php?page=tambah_mhs" method="post">
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama masuk</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
 		<div class="col-md-6 col-sm-6 ">
 			<input type="text" name="nama" class="form-control" size="4" required>
 		</div>
 	</div>
 	<div class="item form-group">
-		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis masuk</label>
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Pakaian</label>
 		<div class="col-md-6 col-sm-6">
 			<select name="jenis" class="form-control" required>
-				<option value="">Piih Jenis masuk</option>
+				<option value="">Piih Jenis Pakaian</option>
 				<option value="Baju">Baju</option>
 				<option value="Celana">Celana</option>
 				<option value="Rok">Rok</option>

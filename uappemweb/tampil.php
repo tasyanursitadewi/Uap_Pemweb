@@ -7,7 +7,7 @@ include('config.php');
 <div class="container" style="margin-top:20px">
 		<center><font size="6">Data Pemasukan</font></center>
 		<hr>
-		<a href="index.php?page=tambah"><button class="btn btn-dark right">Tambah Data</button></a>
+		<a href="utama.php?page=tambah"><button class="btn btn-dark right">Tambah Data</button></a>
 		<div class="table-responsive">
 		<table class="table table-striped jambo_table bulk_action">
 			<thead>
@@ -39,7 +39,7 @@ include('config.php');
 							<td align="center">'.$data['jumlah'].'</td>
 							<td>'.$data['total_harga'].'</td>
 							<td align="center">
-							<a href="index.php?page=edit&id='.$data['id'].' "class="btn btn-primary btn-sm">Edit</a>
+							<a href="utama.php?page=edit&id='.$data['id'].' "class="btn btn-primary btn-sm">Edit</a>
 							<a href="delete.php?id='.$data['id'].'" class="btn btn-danger btn-sm" onclick="return confirm(\'Yakin ingin menghapus data ini?\')">Delete</a>
 							</td>
 						</tr>

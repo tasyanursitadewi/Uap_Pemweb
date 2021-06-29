@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="icon" href="assets/images/favicon.png" type="image/ico" />
 
-    <title> Sistem Informasi Penjualan Pakaian</title>
+    <title>Fashion Go</title>
 
     <!-- Bootstrap -->
     <link href="assets/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -31,7 +31,7 @@
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
             <center>
-            &nbsp; <a href="index.php" class="fa fa-mortar-board fa-2x" style="color:#fff;"><span><font size="4.95" color="white" face="Helvetica Neue">APLIKASI AKADEMIK</font></span></a>
+            &nbsp; <a href="utama.php" class="fa fa-mortar-board fa-2x" style="color:#fff;"><span><font size="4.95" color="white" face="Helvetica Neue">APLIKASI AKADEMIK</font></span></a>
             </center>
             </div>
 
@@ -55,12 +55,12 @@
             <div id="sidebar-menu" class="main_menu_side hidden-print main_menu">
               <div class="menu_section">
                 <ul class="nav side-menu">
-                  <li><a href="index.php"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
+                  <li><a href="utama.php"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                   </li>
                   <li><a href="#"><i class="fa fa-desktop"></i> Pemasukan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="index.php?page=tampil">Data Pemasukan</a></li>
-                      <li><a href="index.php?page=tambah">Input Data</a></li>
+                      <li><a href="utama.php?page=tampil">Data Pemasukan</a></li>
+                      <li><a href="utama.php?page=tambah">Input Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Pengeluaran <span class="fa fa-chevron-down"></span></a>

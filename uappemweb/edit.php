@@ -33,7 +33,7 @@
 		$sql = mysqli_query($koneksi, "UPDATE masuk SET nama='$Nama', jenis='$Jenis', ukuran='$Ukuran', harga='$Harga', jumlah='$Jumlah', total_harga='$Total_Harga' WHERE id='$id'") or die(mysqli_error($koneksi));
 
 		if ($sql) {
-			echo '<script>alert("Berhasil menyimpan data."); document.location="index.php?page=tampil";</script>';
+			echo '<script>alert("Berhasil menyimpan data."); document.location="utama.php?page=tampil";</script>';
 		} else {
 			echo '<div class="alert alert-warning">Gagal melakukan proses edit data.</div>';
 		}
@@ -43,16 +43,16 @@
 	<form action="edit.php?page=edit&id=<?php echo $id; ?>" method="POST">
 </div>
 <div class="item form-group">
-	<label class="col-form-label col-md-3 col-sm-3 label-align">Nama masuk</label>
+	<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
 	<div class="col-md-6 col-sm-6">
 		<input type="text" name="nama" class="form-control" value="<?php echo $data['nama']; ?>" required>
 	</div>
 </div>
 <div class="item form-group">
-	<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis masuk</label>
+	<label class="col-form-label col-md-3 col-sm-3 label-align">Jenis Pakaian</label>
 	<div class="col-md-6 col-sm-6">
 		<select name="jenis" class="form-control" required>
-			<option value="">Pilih Jenis masuk</option>
+			<option value="">Pilih Jenis Pakaian</option>
 			<option value="Baju"
 			<?php if ($data['jenis'] == 'Baju') {
 				echo 'selected';
@@ -175,7 +175,7 @@
 <div class="item form-group">
 	<div class="col-md-6 col-sm-6 offset-md-3">
 		<input type="submit" name="submit" class="btn btn-primary" value="Simpan">
-		<a href="index.php?page=tampil" class="btn btn-warning">Kembali</a>
+		<a href="utama.php?page=tampil" class="btn btn-warning">Kembali</a>
 	</div>
 </div>
 </form>
