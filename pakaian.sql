@@ -76,3 +76,43 @@ COMMIT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+
+CREATE TABLE `keluar` (
+  `id` int(11) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `jenis` varchar(50) NOT NULL,
+  `ukuran` varchar(5) NOT NULL,
+  `harga` varchar(50) NOT NULL,
+  `jumlah` int(11) NOT NULL,
+  `total_harga` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `masuk`
+--
+
+INSERT INTO `keluar` (`id`, `nama`, `jenis`, `ukuran`, `harga`, `jumlah`, `total_harga`) VALUES
+(1, 'Batik Wanita Modern Monalisa', 'Baju', 'L', 'Rp59.000', 2, 'Rp118.000'),
+(9, 'Gamis Alesha', 'Baju Muslim', 'XL', 'Rp47.000', 3, 'Rp141.000');
+
+--
+-- Indexes for dumped tables
+--
+
+--
+-- Indexes for table `masuk`
+--
+ALTER TABLE `keluar`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `masuk`
+--
+ALTER TABLE `keluar`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+COMMIT;

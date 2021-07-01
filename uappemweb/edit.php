@@ -11,7 +11,17 @@
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 		$select = mysqli_query($koneksi, "SELECT * FROM masuk WHERE id='$id'") or die(mysqli_error($koneksi));
+		if (mysqli_num_rows($select) == 0) {
+			echo '<div class="alert alert-warning">ID tidak ada dalam database.</div>';
+			exit();
+		} else {
+			$data = mysqli_fetch_assoc($select);
+		}
+	}
 
+	if (isset($_GET['id'])) {
+		$id = $_GET['id'];
+		$select = mysqli_query($koneksi, "SELECT * FROM keluar WHERE id='$id'") or die(mysqli_error($koneksi));
 		if (mysqli_num_rows($select) == 0) {
 			echo '<div class="alert alert-warning">ID tidak ada dalam database.</div>';
 			exit();

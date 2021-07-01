@@ -63,10 +63,10 @@
                       <li><a href="utama.php?page=tambah">Input Data</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Pengeluaran <span class="fa fa-chevron-down"></span></a>
+                  <li><a><i class="fa fa-desktop"></i> Data Pengeluaran <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href="#">Data Pengeluaran</a></li>
-                      <li><a href="#">Input Data</a></li>
+                      <li><a href=" utama.php?page=tampil">Data Pengeluaran</a></li>
+                      <li><a href="utama.php?page=tambah">Input Data</a></li>
                     </ul>
                   </li>
                   <li><a><i class="fa fa-desktop"></i> Laporan Bulanan <span class="fa fa-chevron-down"></span></a>
