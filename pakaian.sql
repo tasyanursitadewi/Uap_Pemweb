@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.0.4
+-- version 5.1.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 27, 2021 at 02:54 AM
--- Server version: 10.4.17-MariaDB
--- PHP Version: 8.0.0
+-- Waktu pembuatan: 06 Jul 2021 pada 06.30
+-- Versi server: 10.4.18-MariaDB
+-- Versi PHP: 8.0.3
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `masuk`
+-- Struktur dari tabel `masuk`
 --
 
 CREATE TABLE `masuk` (
@@ -38,7 +38,7 @@ CREATE TABLE `masuk` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `masuk`
+-- Dumping data untuk tabel `masuk`
 --
 
 INSERT INTO `masuk` (`id`, `nama`, `jenis`, `ukuran`, `harga`, `jumlah`, `total_harga`) VALUES
@@ -52,67 +52,58 @@ INSERT INTO `masuk` (`id`, `nama`, `jenis`, `ukuran`, `harga`, `jumlah`, `total_
 (8, 'Mukena Katun Polos Rajut', 'Mukena', 'XL', 'Rp81.000', 10, 'Rp810.000'),
 (9, 'Gamis Alesha', 'Baju Muslim', 'XL', 'Rp47.000', 8, 'Rp376.000');
 
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `user`
+--
+
+CREATE TABLE `user` (
+  `id` int(10) NOT NULL,
+  `username` varchar(30) CHARACTER SET latin1 NOT NULL,
+  `password` varchar(30) CHARACTER SET latin1 NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `user`
+--
+
+INSERT INTO `user` (`id`, `username`, `password`) VALUES
+(1, 'admin', 'adminkita');
+
 --
 -- Indexes for dumped tables
 --
 
 --
--- Indexes for table `masuk`
+-- Indeks untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- Indeks untuk tabel `user`
+--
+ALTER TABLE `user`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `masuk`
+-- AUTO_INCREMENT untuk tabel `masuk`
 --
 ALTER TABLE `masuk`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+
+--
+-- AUTO_INCREMENT untuk tabel `user`
+--
+ALTER TABLE `user`
+  MODIFY `id` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-
-CREATE TABLE `keluar` (
-  `id` int(11) NOT NULL,
-  `nama` varchar(100) NOT NULL,
-  `jenis` varchar(50) NOT NULL,
-  `ukuran` varchar(5) NOT NULL,
-  `harga` varchar(50) NOT NULL,
-  `jumlah` int(11) NOT NULL,
-  `total_harga` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `masuk`
---
-
-INSERT INTO `keluar` (`id`, `nama`, `jenis`, `ukuran`, `harga`, `jumlah`, `total_harga`) VALUES
-(1, 'Batik Wanita Modern Monalisa', 'Baju', 'L', 'Rp59.000', 2, 'Rp118.000'),
-(9, 'Gamis Alesha', 'Baju Muslim', 'XL', 'Rp47.000', 3, 'Rp141.000');
-
---
--- Indexes for dumped tables
---
-
---
--- Indexes for table `masuk`
---
-ALTER TABLE `keluar`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `masuk`
---
-ALTER TABLE `keluar`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
-COMMIT;

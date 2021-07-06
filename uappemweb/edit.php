@@ -11,17 +11,7 @@
 	if (isset($_GET['id'])) {
 		$id = $_GET['id'];
 		$select = mysqli_query($koneksi, "SELECT * FROM masuk WHERE id='$id'") or die(mysqli_error($koneksi));
-		if (mysqli_num_rows($select) == 0) {
-			echo '<div class="alert alert-warning">ID tidak ada dalam database.</div>';
-			exit();
-		} else {
-			$data = mysqli_fetch_assoc($select);
-		}
-	}
 
-	if (isset($_GET['id'])) {
-		$id = $_GET['id'];
-		$select = mysqli_query($koneksi, "SELECT * FROM keluar WHERE id='$id'") or die(mysqli_error($koneksi));
 		if (mysqli_num_rows($select) == 0) {
 			echo '<div class="alert alert-warning">ID tidak ada dalam database.</div>';
 			exit();
@@ -33,6 +23,7 @@
 
 	<?php
 	if (isset($_POST['submit'])) {
+		$Tanggal	= $_POST['tanggal'];
 		$Nama		= $_POST['nama'];
 		$Jenis		= $_POST['jenis'];
 		$Ukuran		= $_POST['ukuran'];
@@ -40,7 +31,7 @@
 		$Jumlah		= $_POST['jumlah'];
 		$Total_Harga = $_POST['total_harga'];
 
-		$sql = mysqli_query($koneksi, "UPDATE masuk SET nama='$Nama', jenis='$Jenis', ukuran='$Ukuran', harga='$Harga', jumlah='$Jumlah', total_harga='$Total_Harga' WHERE id='$id'") or die(mysqli_error($koneksi));
+		$sql = mysqli_query($koneksi, "UPDATE masuk SET tanggal='$Tanggal', nama='$Nama', jenis='$Jenis', ukuran='$Ukuran', harga='$Harga', jumlah='$Jumlah', total_harga='$Total_Harga' WHERE id='$id'") or die(mysqli_error($koneksi));
 
 		if ($sql) {
 			echo '<script>alert("Berhasil menyimpan data."); document.location="utama.php?page=tampil";</script>';
@@ -49,8 +40,13 @@
 		}
 	}
 	?>
-
+</div>
 	<form action="edit.php?page=edit&id=<?php echo $id; ?>" method="POST">
+<div class="item form-group">
+	<label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal</label>
+	<div class="col-md-6 col-sm-6">
+		<input type="date" name="tanggal" class="form-control" value="<?php echo $data['tanggal']; ?>" required>
+	</div>
 </div>
 <div class="item form-group">
 	<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
@@ -149,7 +145,7 @@
 					} ?> required>L
 			</label>
 			<label class="btn btn-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
-				<input type="radio" class="join-btn" name="ukuran" value="XL"
+				<input type="radio" class="join-btn " name="ukuran" value="XL"
 				<?php if ($data['ukuran'] == 'XL') {
 					echo 'checked';
 			} ?> required>XL

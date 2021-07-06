@@ -7,6 +7,7 @@
 <?php
 if (isset($_POST['submit'])) {
 	$id			= $_POST['id'];
+	$Tanggal	= $_POST['tanggal'];
 	$Nama		= $_POST['nama'];
 	$Jenis		= $_POST['jenis'];
 	$Ukuran		= $_POST['ukuran'];
@@ -17,44 +18,26 @@ if (isset($_POST['submit'])) {
 	$cek = mysqli_query($koneksi, "SELECT * FROM masuk WHERE id='$id'") or die(mysqli_error($koneksi));
 
 	if (mysqli_num_rows($cek) == 0) {
-		$sql = mysqli_query($koneksi, "INSERT INTO masuk (id, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
+		$sql = mysqli_query($koneksi, "INSERT INTO masuk (id, tanggal, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Tanggal', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
 
 		if ($sql) {
-			echo '<script>alert("Berhasil menambahkan data."); document.location="utama.php?page=tampil_mhs";</script>';
+			echo '<script>alert("Berhasil menambahkan data."); document.location="utama.php?page=tampil";</script>';
 		} else {
-			echo '<script>alert("Gagal melakukan proses tambah data."); document.location="utama.php?page=tambah_mhs";</script';
+			echo '<script>alert("Gagal melakukan proses tambah data."); document.location="utama.php?page=tambah";</script';
 		}
 	} else {
-		echo '<script>alert("Gagal, NIM sudah terdaftar."); document.location="utama.php?page=tambah_mhs";</script>';
-	}
-}
-
-if (isset($_POST['submit'])) {
-	$id			= $_POST['id'];
-	$Nama		= $_POST['nama'];
-	$Jenis		= $_POST['jenis'];
-	$Ukuran		= $_POST['ukuran'];
-	$Harga 		= $_POST['harga'];
-	$Jumlah		= $_POST['jumlah'];
-	$Total_Harga= $_POST['total_harga'];
-
-	$cek = mysqli_query($koneksi, "SELECT * FROM keluar WHERE id='$id'") or die(mysqli_error($koneksi));
-
-	if (mysqli_num_rows($cek) == 0) {
-		$sql = mysqli_query($koneksi, "INSERT INTO keluar (id, nama, jenis, ukuran, harga, jumlah, total_harga) VALUES('$id', '$Nama', '$Jenis', '$Ukuran', '$Harga', '$Jumlah', '$Total_Harga')") or die(mysqli_error($koneksi));
-
-		if ($sql) {
-			echo '<script>alert("Berhasil menambahkan data."); document.location="utama.php?page=tampil_mhs";</script>';
-		} else {
-			echo '<script>alert("Gagal melakukan proses tambah data."); document.location="utama.php?page=tambah_mhs";</script';
-		}
-	} else {
-		echo '<script>alert("Gagal, NIM sudah terdaftar."); document.location="utama.php?page=tambah_mhs";</script>';
+		echo '<script>alert("Gagal, NIM sudah terdaftar."); document.location="utama.php?page=tambah";</script>';
 	}
 }
 ?>
 
-<form action="utama.php?page=tambah_mhs" method="post">
+<form action="utama.php?page=tambah" method="post">
+	<div class="item form-group">
+		<label class="col-form-label col-md-3 col-sm-3 label-align">Tanggal</label>
+		<div class="col-md-6 col-sm-6 ">
+			<input type="date" name="tanggal" class="form-control" size="4" required>
+		</div>
+	</div>
 	<div class="item form-group">
 		<label class="col-form-label col-md-3 col-sm-3 label-align">Nama Pakaian</label>
 		<div class="col-md-6 col-sm-6 ">

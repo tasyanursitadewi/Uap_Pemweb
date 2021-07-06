@@ -22,6 +22,8 @@
     <link href="assets/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
     <!-- Custom Theme Style -->
     <link href="assets/css/custom.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="datepicker/js/bootstrap-datepicker.js"></script>
   </head>
 
   <body class="nav-md">
@@ -31,7 +33,7 @@
           <div class="left_col scroll-view">
             <div class="navbar nav_title" style="border: 0;">
             <center>
-            &nbsp; <a href="utama.php" class="fa fa-mortar-board fa-2x" style="color:#fff;"><span><font size="4.95" color="white" face="Helvetica Neue">APLIKASI AKADEMIK</font></span></a>
+            &nbsp; <a href="utama.php" class="fa fa-shopping-basket fa-2x" style="color:#fff;"><span><font size="6.95" color="white" face="Helvetica Neue"> Fashion GO!</font></span></a>
             </center>
             </div>
 
@@ -57,24 +59,21 @@
                 <ul class="nav side-menu">
                   <li><a href="utama.php"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                   </li>
+                  <li><a href="utama.php?page=laporanmasuk"><i class="fa fa-desktop"></i> Data Laporan <span class="fa fa-chevron"></span></a>
+                  </li>
                   <li><a href="#"><i class="fa fa-desktop"></i> Pemasukan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
                       <li><a href="utama.php?page=tampil">Data Pemasukan</a></li>
                       <li><a href="utama.php?page=tambah">Input Data</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Data Pengeluaran <span class="fa fa-chevron-down"></span></a>
+                  <li><a href='#'><i class="fa fa-desktop"></i> Pengeluaran <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
-                      <li><a href=" utama.php?page=tampil">Data Pengeluaran</a></li>
-                      <li><a href="utama.php?page=tambah">Input Data</a></li>
+                      <li><a href="utama.php?page=tampil2">Data Pengeluaran</a></li>
+                      <li><a href="utama.php?page=tambah2">Input Data</a></li>
                     </ul>
                   </li>
-                  <li><a><i class="fa fa-desktop"></i> Laporan Bulanan <span class="fa fa-chevron-down"></span></a>
-                    <ul class="nav child_menu">
-                      <li><a href="#">Settings 1</a></li>
-                      <li><a href="#">Settings 2</a></li>
-                    </ul>
-                  </li>
+                  
                 </ul>
               </div>
             </div>
@@ -82,16 +81,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Settings" href="#">
-                <span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="FullScreen" href="#">
-                <span class="glyphicon glyphicon-fullscreen" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Lock" href="#">
-                <span class="glyphicon glyphicon-eye-close" aria-hidden="true"></span>
-              </a>
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="#">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="index.php">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -112,12 +102,7 @@
                     <img src="assets/images/image.jpg" alt="">Admin 
                   </a>
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="#"> Profile</a>
-                      <a class="dropdown-item"  href="#">
-                        <span class="badge bg-red pull-right">50%</span>
-                        <span>Settings</span>
-                      </a>
-                    <a class="dropdown-item"  href="#"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
               </ul>
@@ -136,19 +121,29 @@
       	case 'tampil':
       		# code...
       		include 'tampil.php';
+          break;
+        case 'tampil2':
+          include 'tampil2.php';
       		break;
       	case 'tambah':
       		# code...
       		include 'tambah.php';
       		break;
+          case 'tambah2':
+            include 'tambah2.php';
+            break;
           case 'edit':
         	# code...
         	include 'edit.php';
         	break;
-          case 'edit_mhs_save':
+          case 'edit2':
           # code...
-          include 'edit.php';
+          include 'edit2.php';
           break;
+          case 'laporanmasuk':
+            # code...
+            include 'lapmasuk.php';
+            break;
         default:
 		      #code...
           include 'home.php';
