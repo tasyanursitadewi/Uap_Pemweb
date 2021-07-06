@@ -59,7 +59,7 @@
                 <ul class="nav side-menu">
                   <li><a href="utama.php"><i class="fa fa-home"></i> Home <span class="fa fa-chevron"></span></a>
                   </li>
-                  <li><a href="utama.php?page=laporanmasuk"><i class="fa fa-desktop"></i> Data Laporan <span class="fa fa-chevron"></span></a>
+                  <li><a href="utama.php?page=laporan"><i class="fa fa-desktop"></i> Data Laporan <span class="fa fa-chevron"></span></a>
                   </li>
                   <li><a href="#"><i class="fa fa-desktop"></i> Pemasukan <span class="fa fa-chevron-down"></span></a>
                     <ul class="nav child_menu">
@@ -81,7 +81,7 @@
 
             <!-- /menu footer buttons -->
             <div class="sidebar-footer hidden-small">
-              <a data-toggle="tooltip" data-placement="top" title="Logout" href="index.php">
+              <a data-toggle="tooltip" data-placement="top" title="Logout" href="logout.php">
                 <span class="glyphicon glyphicon-off" aria-hidden="true"></span>
               </a>
             </div>
@@ -101,8 +101,9 @@
                   <a href="#" class="user-profile dropdown-toggle" aria-haspopup="true" id="navbarDropdown" data-toggle="dropdown" aria-expanded="false">
                     <img src="assets/images/image.jpg" alt="">Admin 
                   </a>
+                  
                   <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item"  href="index.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
+                    <a class="dropdown-item"  href="logout.php"><i class="fa fa-sign-out pull-right"></i> Log Out</a>
                   </div>
                 </li>
               </ul>
@@ -140,9 +141,9 @@
           # code...
           include 'edit2.php';
           break;
-          case 'laporanmasuk':
+          case 'laporan':
             # code...
-            include 'lapmasuk.php';
+            include 'laporan.php';
             break;
         default:
 		      #code...

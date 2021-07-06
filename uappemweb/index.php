@@ -43,7 +43,7 @@
 <?php
 if(isset($_GET['pesan'])){
 	if($_GET['pesan'] == "gagal"){
-		echo "<center><h2><b>Login gagal! Username atau Password anda salah!</b></h2></center>";
+		echo"<center><h2><b>Login gagal! Username atau Password anda salah!</b></h2></center>" ;
 	}
 }
 ?>

@@ -41,10 +41,10 @@ while ($tabelD = mysqli_fetch_array($jumlah4)) {
 <br>
 <div class="row mb-5" align="center">
     <div class="col ml-5">
-        <font size="5"><div class="card bg-danger text-white" style="height: 7rem; width: 20rem;">Jumlah Buku Masuk<br><?= $bukumasuk; ?></div></font>
+        <font size="5"><div class="card bg-danger text-white" style="height: 7rem; width: 20rem;">Jumlah Barang Masuk<br><?= $bukumasuk; ?></div></font>
     </div>
     <div class="col mr-5">
-        <font size="5" align="center"><div class="card bg-success text-white" style="height: 7rem; width: 20rem;">Jumlah Buku Keluar<br><?= $bukukeluar; ?></div></font>
+        <font size="5" align="center"><div class="card bg-success text-white" style="height: 7rem; width: 20rem;">Jumlah Barang Keluar<br><?= $bukukeluar; ?></div></font>
     </div>
 </div>
 <div class="row" align="center">
